@@ -50,10 +50,14 @@ TARGET_NO_BOOTLOADER := true
 TARGET_SCREEN_DENSITY := 440
 
 # Kernel
+BOARD_KERNEL_CMDLINE := \
+        bootopt=64S3,32N2,64N2 \
+        androidboot.force_normal_boot=1 \
+        loop.max_part=7 \
+        androidboot.init_fatal_reboot_target=recovery \
+        androidboot.selinux=permissive
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-BOARD_KERNEL_CMDLINE += androidboot.force_normal_boot=1
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x07c08000
 BOARD_KERNEL_TAGS_OFFSET := 0x0bc08000
@@ -137,6 +141,7 @@ TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_FRAMERATE := 90
 TW_EXCLUDE_APEX := true
+TW_HAS_NO_RECOVERY_PARTITION := true
 
 # Brightness Screen
 TW_NO_SCREEN_BLANK := true
@@ -182,18 +187,17 @@ TW_PREPARE_DATA_MEDIA_EARLY := true
 # Treble
 PB_DISABLE_DEFAULT_TREBLE_COMP := true
 
-# DM Verity
-PB_DISABLE_DEFAULT_DM_VERITY := false
-
-# Maintainer Flags
-MAINTAINER := 'YudhoPatrianto'
-
 # Libresetprop & resetprop
 TW_INCLUDE_LIBRESETPROP := true
 TW_INCLUDE_RESETPROP := true
 
+# Include BASH,NANO,Python
+TW_INCLUDE_BASH := true
+TW_INCLUDE_NANO := true
+TW_INCLUDE_PYTHON := true
+
+# Busybox
+TW_USE_TOOLBOX := true 
+
 # Handle /data/media
 RECOVERY_SDCARD_ON_DATA := true
-
-# Disable AVB2.0
-PB_DISABLE_DEFAULT_PATCH_AVB2 := true
