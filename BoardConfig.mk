@@ -162,9 +162,6 @@ TW_HAS_MTP := true
 # USB OTG
 TW_USB_STORAGE := true
 
-# Support /data/media
-RECOVERY_SDCARD_ON_DATA := true
-
 # LOGCAT
 TARGET_USES_LOGD := true    
 TWRP_INCLUDE_LOGCAT := true
@@ -191,9 +188,6 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_PREPARE_DATA_MEDIA_EARLY := true
-
-# Treble
-PB_DISABLE_DEFAULT_TREBLE_COMP := true
 
 # Libresetprop & resetprop
 TW_INCLUDE_LIBRESETPROP := true
